@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная работа №4</title>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            padding: 1em;
+            background-color: #f7f7f7;
+        }
+        .controls {
+            margin-bottom: 1em;
+            padding-bottom: 1em;
+            border-bottom: 1px solid #ccc;
+        }
+        .controls button {
+            margin-right: 10px;
+            padding: 8px 12px;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            height: 80vh;
+        }
+        .panel {
+            flex: 1;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+        .panel h2 {
+            margin: 0;
+            padding: 0.5em;
+            background-color: #eee;
+            font-size: 1em;
+        }
+        pre {
+            padding: 1em;
+            margin: 0;
+            white-space: pre-wrap;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ЛР №4: Работа с DOM</h1>
+    
+    <div class="controls">
+        <button onclick="changeData()">1. Изменить данные</button>
+        <button onclick="addElement()">2. Добавить элемент</button>
+        <button onclick="removeElement()">3. Удалить элемент</button>
+        <button onclick="replaceElement()">4. Заменить элемент</button>
+        <button onclick="reset()">Сбросить</button>
+    </div>
+
+    <div class="container">
+        <div class="panel">
+            <h2>Исходный файл (неизменяемый)</h2>
+            <pre id="original-xml"></pre>
+        </div>
+        <div class="panel">
+            <h2>Результат (изменяемый)</h2>
+            <pre id="modified-xml"></pre>
+        </div>
+    </div>
+
+<script>
+    let xmlDoc;
+    let originalXmlString;
+
+    window.onload = async () => {
+        try {
+            const response = await fetch('marvel.xml');
+            originalXmlString = await response.text();
+
+            document.getElementById('original-xml').textContent = originalXmlString;
+            
+            reset();
+
+        } catch (error) {
+            alert("Ошибка! Не удалось загрузить файл marvel.xml. Убедись, что ты запустил локальный веб-сервер.");
+            console.error(error);
+        }
+    };
+    
+    function updateModifiedView() {
+        const serializer = new XMLSerializer();
+        const updatedXmlString = serializer.serializeToString(xmlDoc);
+        document.getElementById('modified-xml').textContent = updatedXmlString;
+    }
+
+    // 1. Изменение данных
+    function changeData() {
+        const budgetElement = xmlDoc.querySelector('movie[id="1"] budget');
+        if (budgetElement) {
+            budgetElement.textContent = '150000000'; // Меняем бюджет
+            updateModifiedView();
+        }
+    }
+
+    // 2. Добавление элемента
+    function addElement() {
+        const avengersMovie = xmlDoc.querySelector('movie[id="6"]');
+        if (avengersMovie) {
+            const newActor = xmlDoc.createElement('actor');
+            newActor.setAttribute('role', 'Nick Fury');
+            
+            const name = xmlDoc.createElement('name');
+            name.textContent = 'Samuel L. Jackson';
+            
+            newActor.appendChild(name);
+            avengersMovie.appendChild(newActor);
+            
+            updateModifiedView();
+        }
+    }
+
+    // 3. Удаление элемента
+    function removeElement() {
+        const actorToRemove = xmlDoc.querySelector('movie[id="1"] actor[role="James Rhodes"]');
+        if (actorToRemove) {
+            actorToRemove.remove();
+            updateModifiedView();
+        }
+    }
+
+    // 4. Замена элемента
+    function replaceElement() {
+        const actorToReplace = xmlDoc.querySelector('movie[id="2"] actor[role="Bruce Banner"]');
+        if (actorToReplace) {
+            const newActor = xmlDoc.createElement('actor');
+            newActor.setAttribute('role', 'Bruce Banner');
+            
+            const name = xmlDoc.createElement('name');
+            name.textContent = 'Mark Ruffalo';
+            
+            newActor.appendChild(name);
+            
+            actorToReplace.replaceWith(newActor);
+            updateModifiedView();
+        }
+    }
+
+    function reset() {
+        if (originalXmlString) {
+            const parser = new DOMParser();
+            xmlDoc = parser.parseFromString(originalXmlString, "application/xml");
+            updateModifiedView();
+        }
+    }
+
+</script>
+
+</body>
+</html>

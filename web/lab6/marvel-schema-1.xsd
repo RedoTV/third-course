@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="idType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="ageRatingType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="G"/>
+      <xs:enumeration value="PG"/>
+      <xs:enumeration value="PG-13"/>
+      <xs:enumeration value="R"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ratingType">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0.0"/>
+      <xs:maxInclusive value="10.0"/>
+    </xs:restriction>
+  </xs:simpleType>
+   
+  <xs:simpleType name="nonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="actorAgeType">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:maxInclusive value="150"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="infoType">
+    <xs:sequence>
+      <xs:element name="name" type="nonEmptyString"/>
+      <xs:element name="year" type="xs:gYear"/>
+      <xs:element name="duration" type="xs:positiveInteger"/>
+      <xs:element name="budget" type="xs:positiveInteger"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="actorType">
+    <xs:sequence>
+      <xs:element name="name" type="nonEmptyString"/>
+      <xs:element name="age" type="actorAgeType"/>
+    </xs:sequence>
+    <xs:attribute name="role" type="nonEmptyString" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="movieType">
+    <xs:sequence>
+      <xs:element name="info" type="infoType"/>
+      <xs:element name="actor" type="actorType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    
+    <xs:attribute name="id" type="idType" use="required"/>
+    <xs:attribute name="rating" type="ratingType" use="required"/>
+    <xs:attribute name="age-rating" type="ageRatingType" use="required"/>
+  </xs:complexType>
+
+  <xs:element name="marvel-movies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="movie" type="movieType" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="founded" type="xs:gYear" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

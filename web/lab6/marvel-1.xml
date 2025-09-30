@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<marvel-movies 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="marvel-schema-1.xsd"
+    founded="2008">
+    
+    <movie id="1" rating="8.0" age-rating="PG-13">
+        <info>
+            <name>Железный человек</name>
+            <year>2008</year>
+            <duration>126</duration>
+            <budget>140000000</budget>
+        </info>
+        <actor role="Tony Stark">
+            <name>Роберт Дауни мл.</name>
+            <age>43</age>
+        </actor>
+        <actor role="Pepper Potts">
+            <name>Гвинет Пэлтроу</name>
+            <age>36</age>
+        </actor>
+        <actor role="James Rhodes">
+            <name>Терренс Ховард</name>
+            <age>39</age>
+        </actor>
+    </movie>
+    
+    <movie id="2" rating="7.0" age-rating="PG-13">
+        <info>
+            <name>Халк</name>
+            <year>2008</year>
+            <duration>112</duration>
+            <budget>150000000</budget>
+        </info>
+        <actor role="Bruce Banner">
+            <name>Эдвард Нортон</name>
+            <age>39</age>
+        </actor>
+        <actor role="Betty Ross">
+            <name>Лив Тайлер</name>
+            <age>31</age>
+        </actor>
+    </movie>
+    
+    <movie id="3" rating="7.0" age-rating="PG-13">
+        <info>
+            <name>Железный человек 2</name>
+            <year>2010</year>
+            <duration>124</duration>
+            <budget>200000000</budget>
+        </info>
+        <actor role="Tony Stark">
+            <name>Роберт Дауни мл.</name>
+            <age>45</age>
+        </actor>
+        <actor role="Natasha Romanoff">
+            <name>Скарлетт Йоханссон</name>
+            <age>26</age>
+        </actor>
+        <actor role="Ivan Vanko">
+            <name>Микки Рурк</name>
+            <age>58</age>
+        </actor>
+    </movie>
+    
+    <movie id="4" rating="7.0" age-rating="PG-13">
+        <info>
+            <name>Тор</name>
+            <year>2011</year>
+            <duration>115</duration>
+            <budget>150000000</budget>
+        </info>
+        <actor role="Thor">
+            <name>Крис Хемсворт</name>
+            <age>28</age>
+        </actor>
+        <actor role="Jane Foster">
+            <name>Натали Портман</name>
+            <age>30</age>
+        </actor>
+        <actor role="Loki">
+            <name>Том Хиддлстон</name>
+            <age>30</age>
+        </actor>
+    </movie>
+    
+    <movie id="5" rating="7.0" age-rating="PG-13">
+        <info>
+            <name>Первый мститель</name>
+            <year>2011</year>
+            <duration>124</duration>
+            <budget>140000000</budget>
+        </info>
+        <actor role="Steve Rogers">
+            <name>Крис Эванс</name>
+            <age>30</age>
+        </actor>
+        <actor role="Peggy Carter">
+            <name>Хейли Этвелл</name>
+            <age>29</age>
+        </actor>
+    </movie>
+    
+    <movie id="6" rating="8.0" age-rating="PG-13">
+        <info>
+            <name>Мстители</name>
+            <year>2012</year>
+            <duration>143</duration>
+            <budget>220000000</budget>
+        </info>
+        <actor role="Tony Stark">
+            <name>Роберт Дауни мл.</name>
+            <age>47</age>
+        </actor>
+        <actor role="Steve Rogers">
+            <name>Крис Эванс</name>
+            <age>31</age>
+        </actor>
+        <actor role="Thor">
+            <name>Крис Хемсворт</name>
+            <age>29</age>
+        </actor>
+        <actor role="Bruce Banner">
+            <name>Марк Руффало</name>
+            <age>45</age>
+        </actor>
+        <actor role="Natasha Romanoff">
+            <name>Скарлетт Йоханссон</name>
+            <age>28</age>
+        </actor>
+        <actor role="Clint Barton">
+            <name>Джереми Реннер</name>
+            <age>41</age>
+        </actor>
+    </movie>
+</marvel-movies>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<marvel-movies 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="marvel-schema-2.xsd"
+    founded="2008">
+
+    <movie id="1" rating="8.0">
+        <info>
+            <year>2008</year>
+            <budget>140000000</budget>
+            <name>Железный человек</name>
+            <duration>126</duration>
+        </info>
+        <actor role="Tony Stark">
+            <name>Роберт Дауни мл.</name>
+            <age>43</age>
+        </actor>
+        <actor role="Pepper Potts">
+            <name>Гвинет Пэлтроу</name>
+            <age>36</age>
+        </actor>
+    </movie>
+    
+    <movie id="2">
+        <info>
+            <name>Халк</name>
+            <year>2008</year>
+            <duration>112</duration>
+        </info>
+        <synopsis>Ученый Брюс Бэннер подвергается воздействию гамма-лучей и превращается в зеленого монстра, когда злится.</synopsis>
+    </movie>
+
+    <movie id="4" rating="7.0">
+        <info>
+            <name>Тор</name>
+            <year>2011</year>
+            <duration>115</duration>
+            <budget>150000000</budget>
+        </info>
+        <actor role="Thor">
+            <name>Крис Хемсворт</name>
+            <age>28</age>
+        </actor>
+    </movie>
+    
+</marvel-movies>

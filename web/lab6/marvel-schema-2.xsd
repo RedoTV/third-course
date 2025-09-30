@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <xs:simpleType name="nonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ratingType">
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0.0"/>
+      <xs:maxInclusive value="10.0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="actor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="nonEmptyString"/>
+        <xs:element name="age" type="xs:positiveInteger"/>
+      </xs:sequence>
+      <xs:attribute name="role" type="nonEmptyString" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:complexType name="infoTypeWithAll">
+    <xs:all>
+      <xs:element name="name" type="nonEmptyString"/>
+      <xs:element name="year" type="xs:gYear"/>
+      <xs:element name="duration" type="xs:positiveInteger"/>
+      
+      <xs:element name="budget" type="xs:positiveInteger" minOccurs="0"/> 
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="movieTypeWithChoice">
+    <xs:sequence>
+      <xs:element name="info" type="infoTypeWithAll"/>
+      <xs:choice>
+        
+        <xs:sequence>
+          <xs:element ref="actor" maxOccurs="unbounded"/>
+        </xs:sequence>
+        
+        <xs:element name="synopsis" type="xs:string"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="rating" type="ratingType" use="optional"/>
+  </xs:complexType>
+
+  <xs:element name="marvel-movies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="movie" type="movieTypeWithChoice" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="founded" type="xs:gYear" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE marvel-movies [
+
+<!ELEMENT marvel-movies (movie+)>
+<!ELEMENT movie (info, actor*)>
+<!ATTLIST movie
+    id ID #REQUIRED
+>
+
+<!ELEMENT info (name+, year, duration, budget?)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+<!ELEMENT budget (#PCDATA)>
+
+<!ELEMENT actor (name, age)>
+<!ATTLIST actor
+    role CDATA #REQUIRED
+>
+<!ELEMENT age (#PCDATA)>
+]>
+<marvel-movies>
+    <movie id="m1">
+        <info>
+            <name>Железный человек</name>
+            <name>Iron Man</name>
+            <year>2008</year>
+            <duration>126</duration>
+            <budget>140000000</budget>
+        </info>
+        <actor role="Tony Stark">
+            <name>Роберт Дауни мл.</name>
+            <age>43</age>
+        </actor>
+    </movie>
+    <movie id="m2">
+        <info>
+            <name>Халк</name>
+            <year>2008</year>
+            <duration>112</duration>
+        </info>
+        <actor role="Bruce Banner">
+            <name>Эдвард Нортон</name>
+            <age>39</age>
+        </actor>
+    </movie>
+    <movie id="m5">
+        <info>
+            <name>Первый мститель</name>
+            <year>2011</year>
+            <duration>124</duration>
+            <budget>140000000</budget>
+        </info>
+    </movie>
+</marvel-movies>

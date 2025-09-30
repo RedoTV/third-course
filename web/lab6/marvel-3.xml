@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<marvel-movies 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="marvel-schema-3.xsd"
+    founded="2008">
+
+    <movie id="m1">
+        <info>
+            <name>Железный человек</name>
+            <year>2008</year>
+            <duration>126</duration>
+            <budget>140000000</budget>
+            <keywords>action sci-fi superhero</keywords>
+        </info>
+        <actor role="Tony Stark">
+            <name>Роберт Дауни мл.</name>
+            <age>43</age>
+        </actor>
+    </movie>
+
+    <movie id="m6">
+        <info>
+            <name>Мстители</name>
+            <year>2012</year>
+            <duration>143</duration>
+            <budget>220000000</budget>
+        </info>
+        <actor role="Tony Stark">
+            <name>Роберт Дауни мл.</name>
+            <age>47</age>
+        </actor>
+        <actor role="Steve Rogers">
+            <name>Крис Эванс</name>
+            <age>31</age>
+        </actor>
+        
+        <notes>
+            This movie was the first major crossover event in the MCU.
+        </notes>
+    </movie>
+    
+</marvel-movies>

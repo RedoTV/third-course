@@ -1,0 +1,23 @@
+<!ELEMENT marvel-movies (movie+)>
+<!ATTLIST marvel-movies
+    founded CDATA #REQUIRED
+>
+
+<!ELEMENT movie (info, actor+)>
+<!ATTLIST movie
+    id ID #REQUIRED
+    rating CDATA #IMPLIED
+    age-rating CDATA #IMPLIED
+>
+
+<!ELEMENT info (name, year, duration, budget)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+<!ELEMENT budget (#PCDATA)>
+
+<!ELEMENT actor (name, age)>
+<!ATTLIST actor
+    role CDATA #REQUIRED
+>
+<!ELEMENT age (#PCDATA)>

@@ -1,0 +1,118 @@
+<?xml-stylesheet type="text/xsl" href="marvel_xml.xsl"?>
+<marvel-movies founded="2008">
+   <movie id="3" rating="7.0" age-rating="PG-13" budgetInMillions="200">
+      <info>
+         <name>Железный человек 2</name>
+         <year>2010</year>
+         <duration>124</duration>
+         <budget>200000000</budget>
+      </info>
+      <casting>
+         <actor>
+            <role>Ivan Vanko</role>
+            <name>Микки Рурк</name>
+            <age>58</age>
+         </actor>
+         <actor>
+            <role>Tony Stark</role>
+            <name>Роберт Дауни мл.</name>
+            <age>45</age>
+         </actor>
+         <actor>
+            <role>Natasha Romanoff</role>
+            <name>Скарлетт Йоханссон</name>
+            <age>26</age>
+         </actor>
+      </casting>
+   </movie>
+   <movie id="4" rating="7.0" age-rating="PG-13" budgetInMillions="150">
+      <info>
+         <name>Тор</name>
+         <year>2011</year>
+         <duration>115</duration>
+         <budget>150000000</budget>
+      </info>
+      <casting>
+         <actor>
+            <role>Thor</role>
+            <name>Крис Хемсворт</name>
+            <age>28</age>
+         </actor>
+         <actor>
+            <role>Jane Foster</role>
+            <name>Натали Портман</name>
+            <age>30</age>
+         </actor>
+         <actor>
+            <role>Loki</role>
+            <name>Том Хиддлстон</name>
+            <age>30</age>
+         </actor>
+      </casting>
+   </movie>
+   <movie id="5" rating="7.0" age-rating="PG-13" budgetInMillions="140">
+      <info>
+         <name>Первый мститель</name>
+         <year>2011</year>
+         <duration>124</duration>
+         <budget>140000000</budget>
+      </info>
+      <casting>
+         <actor>
+            <role>Steve Rogers</role>
+            <name>Крис Эванс</name>
+            <age>30</age>
+         </actor>
+         <actor>
+            <role>Peggy Carter</role>
+            <name>Хейли Этвелл</name>
+            <age>29</age>
+         </actor>
+      </casting>
+   </movie>
+   <movie id="6" rating="8.0" age-rating="PG-13" budgetInMillions="220">
+      <info>
+         <name>Мстители</name>
+         <year>2012</year>
+         <duration>143</duration>
+         <budget>220000000</budget>
+      </info>
+      <casting>
+         <actor>
+            <role>Clint Barton</role>
+            <name>Джереми Реннер</name>
+            <age>41</age>
+         </actor>
+         <actor>
+            <role>Thor</role>
+            <name>Крис Хемсворт</name>
+            <age>29</age>
+         </actor>
+         <actor>
+            <role>Steve Rogers</role>
+            <name>Крис Эванс</name>
+            <age>31</age>
+         </actor>
+         <actor>
+            <role>Bruce Banner</role>
+            <name>Марк Руффало</name>
+            <age>45</age>
+         </actor>
+         <actor>
+            <role>Tony Stark</role>
+            <name>Роберт Дауни мл.</name>
+            <age>47</age>
+         </actor>
+         <actor>
+            <role>Natasha Romanoff</role>
+            <name>Скарлетт Йоханссон</name>
+            <age>28</age>
+         </actor>
+      </casting>
+   </movie>
+   <summary>
+      <totalMovies>4</totalMovies>
+      <totalBudget>7.1E8</totalBudget>
+      <averageRating>7.25</averageRating>
+   </summary>
+</marvel-movies>

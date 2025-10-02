@@ -1,11 +1,10 @@
 import java.util.Scanner;
 
-/**
- * Лабораторная работа 1 - Типы данных
- * Задание 1: Найти значение (по варианту).
- * Вариант 7: Определите объём куба, если его ребро равно x см.
- */
-public class Lab1_1 {
+/*
+    Задание 1: Найти значение (по варианту).
+    Вариант 7: Определите объём куба, если его ребро равно x см.
+*/
+public class Task1_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

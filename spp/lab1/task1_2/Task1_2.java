@@ -1,15 +1,14 @@
 import java.util.Scanner;
 
-/**
- * Лабораторная работа 1 - Типы данных
- * Задание 2: Вычислить значение выражения
- * Вариант 7: Кусочно-заданная функция
- *
- * f1(x) = cos(x + ln(x)) + e^x, при x < a
- * f2(x) = x / sqrt(u - x^2), при x = [a;b]
- * f3(x) = 5x / (u + 3), при x > b
- */
-public class Lab1_2 {
+/*
+    Задание 2: Вычислить значение выражения
+    Вариант 7: Кусочно-заданная функция
+    
+    f1(x) = cos(x + ln(x)) + e^x, при x < a
+    f2(x) = x / sqrt(u - x^2), при x = [a;b]
+    f3(x) = 5x / (u + 3), при x > b
+*/
+public class Task1_2 {
 
     private static double readDouble(Scanner scanner, String varName) {
         double value;

@@ -17,7 +17,7 @@ public class Task2_1 {
         int[] arr = new int[n];
         System.out.println("Enter array elements:");
         for (int i = 0; i < n; i++) {
-            arr[i] = scanner.nextInt();
+            arr[i] = readArrayElement(scanner, i);
         }
         
         int minIndex = findFirstMinIndex(arr);
@@ -39,8 +39,6 @@ public class Task2_1 {
             }
             System.out.println("Product of elements between min and max: " + product);
         }
-        
-        scanner.close();
     }
     
     private static int readPositiveInt(Scanner scanner, String message) {
@@ -56,6 +54,20 @@ public class Task2_1 {
                 scanner.next();
             }
             System.out.println("Error! Enter a positive integer.");
+        }
+    }
+
+    private static int readArrayElement(Scanner scanner, int index) {
+        int value;
+        while (true) {
+            System.out.print("A[" + index + "]=");
+            if (scanner.hasNextInt()) {
+                value = scanner.nextInt();
+                return value;
+            } else {
+                scanner.next();
+                System.out.println("Error! Enter a valid integer.");
+            }
         }
     }
     

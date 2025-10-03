@@ -20,7 +20,7 @@ public class Task2_2 {
         System.out.println("Enter matrix elements:");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                matrix[i][j] = scanner.nextInt();
+                matrix[i][j] = readMatrixElement(scanner, i, j);
             }
         }
         
@@ -74,6 +74,18 @@ public class Task2_2 {
                 scanner.next();
             }
             System.out.println("Error! Enter a positive integer.");
+        }
+    }
+    
+    private static int readMatrixElement(Scanner scanner, int row, int col) {
+        while (true) {
+            System.out.print("matrix[" + row + "][" + col + "] = ");
+            if (scanner.hasNextInt()) {
+                return scanner.nextInt();
+            } else {
+                scanner.next();
+                System.out.println("Error! Enter a valid integer. Please try again.");
+            }
         }
     }
     

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /*
-    Задание 1: Найти значение (по варианту).
+    Задание 1: Найти значение 
     Вариант 7: Определите объём куба, если его ребро равно x см.
 */
 public class Task1_1 {
@@ -17,10 +17,10 @@ public class Task1_1 {
                 if (x > 0) {
                     break;
                 } else {
-                    System.out.println("Error: side length must be positive! Please try again.");
+                    System.out.println("Error: side length must be positive!");
                 }
             } else {
-                System.out.println("Error: invalid input value! Please try again.");
+                System.out.println("Error: invalid input value!");
                 scanner.next();
             }
         }

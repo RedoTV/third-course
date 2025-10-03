@@ -33,9 +33,10 @@ public class Task1_2 {
         double b = readDouble(scanner, "b");
         double u = readDouble(scanner, "u");
 
-        if (a > b) {
+        while (a > b) {
             System.out.println("Error: interval start cannot be greater than end (a > b)!");
-            return;
+            a = readDouble(scanner, "a");
+            b = readDouble(scanner, "b");
         }
 
         double result;

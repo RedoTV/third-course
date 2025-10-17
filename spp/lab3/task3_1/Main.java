@@ -1,51 +1,107 @@
 package lab3.task3_1;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         
-        PublicationType type1 = new PublicationType("Газета", 10.0);
-        PublicationType type2 = new PublicationType("Журнал", 20.0);
+        //это писал не я
+        Subscription subscription = new Subscription();
+        // System.out.println(subscription.getClient().getFullname().length());
+        subscription.fillFromConsole(scanner);
+        subscription.output();
+        // System.out.println(subscription.toString());
+
+        //а это уже я
         
-        System.out.println(type1);
-        System.out.println(type2);
         
-        Employee employee = new Employee("Иванов", "Иван", "Иванович", "+375291234567");
-        System.out.println(employee);
+
+        // PublicationType type1 = new PublicationType("Газета", 10.0);
+        // PublicationType type2 = new PublicationType("Журнал", 20.0);
+        // type1.output();
+        // type2.output();
         
-        Client client = new Client("Петров", "Петр", "Петрович", "+375297654321");
-        System.out.println(client);
+        // Employee employee = new Employee("Иванов Иван Иванович", "+375291234567", "Менеджер");
+        // employee.output();
         
-        Publication pub1 = new Publication("Вечерний Гомель", 15.50, type1);
-        Publication pub2 = new Publication("Cosmopolitan", 25.00, type2);
+        // Client client = new Client("Петров Петр Петрович", "+375297654321", "г. Гомель, ул. Советская 1");
+        // client.output();
         
-        System.out.println(pub1);
-        System.out.println(pub2);
+        // Publication pub1 = new Publication("Вечерний Гомель", 15.50, type1);
+        // Publication pub2 = new Publication("Cosmopolitan", 25.00, type2);
+        // pub1.output();
+        // pub2.output();
         
-        Subscription sub = new Subscription(client, employee, pub1, LocalDate.now(), 6);
-        System.out.println(sub);
+        // Subscription sub = new Subscription(client, employee, pub1, LocalDate.now(), 6);
+        // sub.output();
         
-        System.out.println("Клиент: " + sub.getClient().getFirstName());
-        System.out.println("Издание: " + sub.getPublication().getTitle());
-        System.out.println("Месяцев: " + sub.getDurationMonths());
+        // System.out.println("\nГеттеры:");
+        // System.out.println(sub.getClient().getFullname());
+        // System.out.println(sub.getPublication().getTitle());
+        // System.out.println(sub.getPublication().getPrice());
+        // System.out.println(sub.getDurationMonths());
+        // System.out.println(sub.getEmployee().getPhone());
         
-        sub.setDurationMonths(12);
-        System.out.println("Новая длительность: " + sub.getDurationMonths());
+        // System.out.println("\nСеттеры:");
+        // sub.setDurationMonths(12);
+        // System.out.println(sub.getDurationMonths());
+        // client.setPhone("+375291111111");
+        // System.out.println(client.getPhone());
+        // employee.setJobTitle("Старший менеджер");
+        // System.out.println(employee.getJobTitle());
+        // pub1.setPrice(18.00);
+        // System.out.println(pub1.getPrice());
         
-        Client client2 = new Client();
-        client2.setLastName("Сидоров");
-        client2.setFirstName("Сидор");
-        client2.setMiddleName("Сидорович");
-        client2.setPhone("+375298888888");
-        System.out.println(client2);
+        // System.out.println("\nПустые конструкторы:");
+        // Client client2 = new Client();
+        // client2.setFullname("Сидоров Сидор Сидорович");
+        // client2.setPhone("+375298888888");
+        // client2.setAddress("г. Минск, пр. Независимости 10");
+        // client2.output();
         
-        Client client3 = new Client();
-        client3.fillFromConsole();
-        System.out.println(client3);
+        // Employee employee2 = new Employee();
+        // employee2.setFullName("Козлова Мария Петровна");
+        // employee2.setPhone("+375297777777");
+        // employee2.setJobTitle("Кассир");
+        // employee2.output();
         
-        PublicationType type3 = new PublicationType();
-        type3.fillFromConsole();
-        System.out.println(type3);
+        // System.out.println("\nfillFromConsole:");
+        // System.out.println("\nКлиент:");
+        // Client client3 = new Client();
+        // client3.fillFromConsole(scanner);
+        // client3.output();
+
+        // System.out.println("\nСотрудник:");
+        // Employee employee3 = new Employee();
+        // employee3.fillFromConsole(scanner);
+        // employee3.output();
+        
+        // System.out.println("\nТипИздания");
+        // PublicationType type3 = new PublicationType();
+        // type3.fillFromConsole(scanner);
+        // type3.output();
+        
+        // System.out.println("\nИздание:");
+        // Publication pub3 = new Publication();
+        // pub3.fillFromConsole(scanner);
+        // pub3.setPublicationType(type3);
+        // pub3.output();
+        
+        // System.out.println("\nПодписка:");
+        // Subscription sub2 = new Subscription();
+        // sub2.setClient(client3);
+        // sub2.setEmployee(employee3);
+        // sub2.setPublication(pub3);
+        // sub2.setStartDate(LocalDate.now());
+        // sub2.fillFromConsole(scanner);
+        // sub2.output();
+        
+        // System.out.println("\nПустая подписка:");
+        // Subscription emptySub = new Subscription();
+        // emptySub.output();
+        
+        scanner.close();
     }
 }

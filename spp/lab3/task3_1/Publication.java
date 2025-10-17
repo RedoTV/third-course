@@ -16,15 +16,16 @@ public class Publication {
     public Publication() {
         this.title = "";
         this.price = 0.0;
-        this.publicationType = null;
+        this.publicationType = new PublicationType();
     }
-    
-    public void fillFromConsole() {
-        Scanner scanner = new Scanner(System.in);
+    //01-01-2001  yyyy-mm-dd
+    public void fillFromConsole(Scanner scanner) {
+        publicationType.fillFromConsole(scanner);
         System.out.print("Введите название издания: ");
         this.title = scanner.nextLine();
         System.out.print("Введите цену: ");
         this.price = scanner.nextDouble();
+        scanner.nextLine();
     }
     
     public void setTitle(String title) {
@@ -51,12 +52,14 @@ public class Publication {
         return publicationType;
     }
     
+    public void output() {
+        System.out.println(this);
+    }
+    
     @Override
     public String toString() {
-        return "Publication{" +
-                "title='" + title + '\'' +
-                ", price=" + price +
-                ", publicationType=" + publicationType +
-                '}';
+        return "Publication { " +
+                "title='" + title + "', price=" + price + ",\n  " +
+                publicationType + " } ";
     }
 }

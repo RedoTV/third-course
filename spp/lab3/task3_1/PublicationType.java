@@ -16,14 +16,14 @@ public class PublicationType {
         this.cost = 0.0;
     }
     
-    public void fillFromConsole() {
-        Scanner scanner = new Scanner(System.in);
+    public void fillFromConsole(Scanner scanner) {
         System.out.print("Введите название типа издания: ");
         this.name = scanner.nextLine();
         System.out.print("Введите стоимость: ");
         this.cost = scanner.nextDouble();
+        scanner.nextLine();
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
@@ -40,11 +40,14 @@ public class PublicationType {
         return cost;
     }
     
+    public void output() {
+        System.out.println(this);
+    }
+
     @Override
     public String toString() {
-        return "PublicationType{" +
-                "name='" + name + '\'' +
-                ", cost=" + cost +
-                '}';
+        return "PublicationType { " +
+                    "name='" + name + '\'' + ", cost=" + cost + 
+                " } ";
     }
 }

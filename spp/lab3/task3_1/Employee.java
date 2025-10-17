@@ -3,76 +3,65 @@ package lab3.task3_1;
 import java.util.Scanner;
 
 public class Employee {
-    private String lastName;
-    private String firstName;
-    private String middleName;
+    private String fullName;
     private String phone;
-    
-    public Employee(String lastName, String firstName, String middleName, String phone) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.middleName = middleName;
+    private String jobTitle;
+
+    public Employee(String fullName, String phone, String jobTitle) {
+        this.fullName = fullName;
         this.phone = phone;
+        this.jobTitle = jobTitle;
     }
     
     public Employee() {
-        this.lastName = "";
-        this.firstName = "";
-        this.middleName = "";
+        this.fullName = "";
         this.phone = "";
+        this.jobTitle = "";
     }
     
-    public void fillFromConsole() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите фамилию: ");
-        this.lastName = scanner.nextLine();
-        System.out.print("Введите имя: ");
-        this.firstName = scanner.nextLine();
-        System.out.print("Введите отчество: ");
-        this.middleName = scanner.nextLine();
-        System.out.print("Введите телефон: ");
+    public void fillFromConsole(Scanner scanner) {
+        System.out.print("Введите ФИО сотрудника: ");
+        this.fullName = scanner.nextLine();
+        System.out.print("Введите телефон сотрудника: ");
         this.phone = scanner.nextLine();
+        System.out.print("Введите должность сотрудника: ");
+        this.jobTitle = scanner.nextLine();
     }
     
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public String getFullName() {
+        return fullName;
     }
-    
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
-    
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-    
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-    
-    public String getLastName() {
-        return lastName;
-    }
-    
-    public String getFirstName() {
-        return firstName;
-    }
-    
-    public String getMiddleName() {
-        return middleName;
-    }
-    
+
     public String getPhone() {
         return phone;
     }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
     
+    public void output() {
+        System.out.println(this);
+    }
+
     @Override
     public String toString() {
-        return "Employee{" +
-                "lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
+        return "Employee { " +
+                "fullName='" + fullName + '\'' +
                 ", phone='" + phone + '\'' +
-                '}';
+                ", jobTitle='" + jobTitle + '\'' +
+                " } ";
     }
 }

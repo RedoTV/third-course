@@ -20,17 +20,24 @@ public class Subscription {
     }
     
     public Subscription() {
-        this.client = null;
-        this.employee = null;
-        this.publication = null;
-        this.startDate = null;
+        this.client = new Client();
+        this.employee = new Employee();
+        this.publication = new Publication();
+        this.startDate = LocalDate.now();
         this.durationMonths = 0;
     }
     
-    public void fillFromConsole() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите количество месяцев: ");
+    public void fillFromConsole(Scanner scanner) {
+        client.fillFromConsole(scanner);
+        employee.fillFromConsole(scanner);
+        publication.fillFromConsole(scanner);
+
+        System.out.print("Введите срок подписки (месяцев): ");
         this.durationMonths = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Введите дату начала подписки (yyyy-mm-dd): ");
+        String date = scanner.nextLine();
+        startDate = LocalDate.parse(date);
     }
     
     public void setClient(Client client) {
@@ -72,15 +79,19 @@ public class Subscription {
     public int getDurationMonths() {
         return durationMonths;
     }
+
+    public void output() {
+        System.out.println(this);
+    }
     
     @Override
     public String toString() {
-        return "Subscription{" +
-                "client=" + client +
-                ", employee=" + employee +
-                ", publication=" + publication +
-                ", startDate=" + startDate +
-                ", durationMonths=" + durationMonths +
-                '}';
+        return "Subscription {\n  " +
+                client + ",\n  " +
+                employee + ",\n  " +
+                publication + ",\n" +
+                "  startDate=" + startDate + ", " +
+                "  durationMonths=" + durationMonths + "\n" +
+                " } ";
     }
 }

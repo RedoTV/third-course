@@ -3,44 +3,42 @@ package lab3.task3_2;
 import java.util.Scanner;
 
 public class Employee extends Person {
-    
-    public Employee(String lastName, String firstName, String middleName, String phone) {
-        super(lastName, firstName, middleName, phone);
+    private JobTitle jobTitle;
+
+    public Employee(String fullName, String phone, JobTitle jobTitle) {
+        super(fullName, phone);
+        this.jobTitle = jobTitle;
     }
     
     public Employee() {
         super();
+        this.jobTitle = JobTitle.POSTMAN;
     }
     
-    @Override
-    public String getFullName() {
-        return lastName + " " + firstName + " " + middleName;
+    public void fillFromConsole(Scanner scanner) {
+        super.fillFromConsole(scanner);
+        jobTitle = JobTitle.fillFromConsole(scanner);
     }
-    
-    @Override
-    public void fillFromConsole() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("--- Ввод данных сотрудника ---");
-        System.out.print("Введите фамилию: ");
-        this.lastName = scanner.nextLine();
-        System.out.print("Введите имя: ");
-        this.firstName = scanner.nextLine();
-        System.out.print("Введите отчество: ");
-        this.middleName = scanner.nextLine();
-        System.out.print("Введите телефон: ");
-        this.phone = scanner.nextLine();
+
+    public JobTitle getJobTitle() {
+        return jobTitle;
     }
-    
-    public void createSubscription(Client client, Publication publication) {
-        System.out.println("Сотрудник " + getFullName() + " оформляет подписку для клиента " + 
-                         client.getFullName() + " на издание " + publication.getTitle());
+
+    public void setJobTitle(JobTitle jobTitle) {
+        this.jobTitle = jobTitle;
     }
-    
+
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Employee { " +
                 "fullName='" + getFullName() + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+                ", phone='" + getPhone() + '\'' +
+                ", jobTitle='" + jobTitle.getDisplayName() + '\'' +
+                " } ";
+    }
+
+    @Override
+    public String getShortDescription() {
+        return "Role: Employee, jobTitle: " + jobTitle;
     }
 }

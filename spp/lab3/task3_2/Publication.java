@@ -2,7 +2,7 @@ package lab3.task3_2;
 
 import java.util.Scanner;
 
-public class Publication implements IConsoleFillable {
+public class Publication implements IValuable {
     private String title;
     private double price;
     private PublicationType publicationType;
@@ -16,17 +16,16 @@ public class Publication implements IConsoleFillable {
     public Publication() {
         this.title = "";
         this.price = 0.0;
-        this.publicationType = null;
+        this.publicationType = new PublicationType();
     }
-    
-    @Override
-    public void fillFromConsole() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("--- Ввод данных издания ---");
+    //01-01-2001  yyyy-mm-dd
+    public void fillFromConsole(Scanner scanner) {
+        publicationType.fillFromConsole(scanner);
         System.out.print("Введите название издания: ");
         this.title = scanner.nextLine();
         System.out.print("Введите цену: ");
         this.price = scanner.nextDouble();
+        scanner.nextLine();
     }
     
     public void setTitle(String title) {
@@ -53,12 +52,24 @@ public class Publication implements IConsoleFillable {
         return publicationType;
     }
     
+    public void output() {
+        System.out.println(this);
+    }
+    
     @Override
     public String toString() {
-        return "Publication{" +
-                "title='" + title + '\'' +
-                ", price=" + price +
-                ", type=" + publicationType.getPrintFormat() +
-                '}';
+        return "Publication { " +
+                "title='" + title + "', price=" + price + ",\n  " +
+                publicationType + " } ";
+    }
+
+    @Override
+    public double calculateValue() {
+        return this.price;
+    }
+
+    @Override
+    public String getValueContext() {
+        return "Издание '" + getTitle() + "'";
     }
 }

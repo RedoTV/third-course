@@ -1,33 +1,53 @@
 package lab3.task3_2;
 
-public enum PublicationType implements IPrintable {
-    NEWSPAPER("Газета", 30),
-    MAGAZINE("Журнал", 60),
-    JOURNAL("Научный журнал", 90),
-    BULLETIN("Бюллетень", 14);
+import java.util.Scanner;
+
+public class PublicationType {
+    private String name;
+    private double cost;
     
-    private final String displayName;
-    private final int standardDurationDays;
-    
-    PublicationType(String displayName, int standardDurationDays) {
-        this.displayName = displayName;
-        this.standardDurationDays = standardDurationDays;
+    public PublicationType(String name, double cost) {
+        this.name = name;
+        this.cost = cost;
     }
     
-    public String getDisplayName() {
-        return displayName;
+    public PublicationType() {
+        this.name = "";
+        this.cost = 0.0;
     }
     
-    public int getStandardDurationDays() {
-        return standardDurationDays;
+    public void fillFromConsole(Scanner scanner) {
+        System.out.print("Введите название типа издания: ");
+        this.name = scanner.nextLine();
+        System.out.print("Введите стоимость: ");
+        this.cost = scanner.nextDouble();
+        scanner.nextLine();
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
     
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public double getCost() {
+        return cost;
+    }
+    
+    public void output() {
+        System.out.println(this);
+    }
+
     @Override
-    public String getPrintFormat() {
-        return displayName + " (выпуск каждые " + standardDurationDays + " дней)";
-    }
-    
-    public boolean isScientific() {
-        return this == JOURNAL;
+    public String toString() {
+        return "PublicationType { " +
+                    "name='" + name + '\'' + ", cost=" + cost + 
+                " } ";
     }
 }

@@ -3,14 +3,14 @@ package lab3.task3_2;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class Subscription implements IProcessableByEmployee, IConsoleFillable {
+public class Subscription implements IValuable {
     private Client client;
     private Employee employee;
     private Publication publication;
     private LocalDate startDate;
     private int durationMonths;
     
-    public Subscription(Client client, Employee employee, Publication publication,
+    public Subscription(Client client, Employee employee, Publication publication, 
                        LocalDate startDate, int durationMonths) {
         this.client = client;
         this.employee = employee;
@@ -20,34 +20,24 @@ public class Subscription implements IProcessableByEmployee, IConsoleFillable {
     }
     
     public Subscription() {
-        this.client = null;
-        this.employee = null;
-        this.publication = null;
-        this.startDate = null;
+        this.client = new Client();
+        this.employee = new Employee();
+        this.publication = new Publication();
+        this.startDate = LocalDate.now();
         this.durationMonths = 0;
     }
     
-    @Override
-    public void fillFromConsole() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("--- Ввод данных подписки ---");
-        System.out.print("Введите количество месяцев: ");
+    public void fillFromConsole(Scanner scanner) {
+        client.fillFromConsole(scanner);
+        employee.fillFromConsole(scanner);
+        publication.fillFromConsole(scanner);
+
+        System.out.print("Введите срок подписки (месяцев): ");
         this.durationMonths = scanner.nextInt();
-    }
-    
-    @Override
-    public void processSubscription(Employee employee) {
-        System.out.println("Подписка обработана сотрудником " + employee.getFullName());
-    }
-    
-    @Override
-    public String getProcessingDetails() {
-        return "Подписка для клиента " + client.getFullName() + 
-               " на издание " + publication.getTitle();
-    }
-    
-    public double calculateTotalCost() {
-        return publication.getPrice() * durationMonths;
+        scanner.nextLine();
+        System.out.print("Введите дату начала подписки (yyyy-mm-dd): ");
+        String date = scanner.nextLine();
+        startDate = LocalDate.parse(date);
     }
     
     public void setClient(Client client) {
@@ -89,16 +79,34 @@ public class Subscription implements IProcessableByEmployee, IConsoleFillable {
     public int getDurationMonths() {
         return durationMonths;
     }
+
+    public void output() {
+        System.out.println(this);
+    }
     
     @Override
     public String toString() {
-        return "Subscription{" +
-                "client=" + client.getFullName() +
-                ", employee=" + employee.getFullName() +
-                ", publication=" + publication.getTitle() +
-                ", startDate=" + startDate +
-                ", duration=" + durationMonths + " months" +
-                ", totalCost=" + calculateTotalCost() +
-                '}';
+        return "Subscription {\n  " +
+                client + ",\n  " +
+                employee + ",\n  " +
+                publication + ",\n" +
+                "  startDate=" + startDate + ", " +
+                "  durationMonths=" + durationMonths + "\n" +
+                " } ";
+    }
+
+    @Override
+    public double calculateValue() {
+        if (publication == null) {
+            return 0.0;
+        }
+        
+        return publication.getPrice() * this.durationMonths;
+    }
+
+    @Override
+    public String getValueContext() {
+        String title = (publication != null) ? publication.getTitle() : "[Издание не указано]";
+        return "Подписка на '" + title + "' (" + this.durationMonths + " мес.)";
     }
 }

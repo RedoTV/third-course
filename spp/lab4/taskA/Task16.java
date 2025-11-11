@@ -6,33 +6,53 @@ package lab4.taskA;
 */
 public class Task16 {
     public static void main(String[] args) {
-        String input = "мама мыла шалаш около потока";
+        String input = "мама, мыла! шалаш. около? потока;";
         System.out.println("Вход: " + input);
         System.out.println("Самое длинное симметричное слово: " + findLongestPalindrome(input));
     }
     
     public static String findLongestPalindrome(String sentence) {
         String[] words = sentence.split(" ");
-        String longestPalindrome = "";
+        String maxPalindrome = "";
         
         for (int i = 0; i < words.length; i++) {
-            String word = words[i];
+            String cleanedWord = cleanWord(words[i]);
             
-            boolean isPalindrome = true;
-            int len = word.length();
-            
-            for (int j = 0; j < len / 2; j++) {
-                if (word.charAt(j) != word.charAt(len - 1 - j)) {
-                    isPalindrome = false;
-                    break;
-                }
-            }
-            
-            if (isPalindrome && word.length() > longestPalindrome.length()) {
-                longestPalindrome = word;
+            if (isPalindrome(cleanedWord) && cleanedWord.length() > maxPalindrome.length()) {
+                maxPalindrome = cleanedWord;
             }
         }
         
-        return longestPalindrome;
+        return maxPalindrome;
+    }
+    
+    private static boolean isPalindrome(String word) {
+        int length = word.length();
+        
+        for (int i = 0; i < length / 2; i++) {
+            if (word.charAt(i) != word.charAt(length - 1 - i)) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    
+    private static String cleanWord(String word) {
+        StringBuilder result = new StringBuilder();
+        
+        for (int i = 0; i < word.length(); i++) {
+            char ch = word.charAt(i);
+            
+            if ((ch >= 'а' && ch <= 'я') || 
+                (ch >= 'А' && ch <= 'Я') ||
+                (ch >= 'a' && ch <= 'z') ||
+                (ch >= 'A' && ch <= 'Z') ||
+                (ch >= '0' && ch <= '9')) {
+                result.append(ch);
+            }
+        }
+        
+        return result.toString();
     }
 }

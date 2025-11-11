@@ -16,43 +16,32 @@ public class Task16 {
         String maxPalindrome = "";
         
         for (int i = 0; i < words.length; i++) {
-            String cleanedWord = cleanWord(words[i]);
+            String word = words[i];
+            int length = word.length();
+            boolean isPalindrome = true;
             
-            if (isPalindrome(cleanedWord) && cleanedWord.length() > maxPalindrome.length()) {
-                maxPalindrome = cleanedWord;
+            for (int j = 0; j < length / 2; j++) {
+                char left = word.charAt(j);
+                char right = word.charAt(length - 1 - j);
+                
+                if (left == '.' || left == ',' || left == '!' || left == '?' || left == ';' || left == ':') {
+                    continue;
+                }
+                if (right == '.' || right == ',' || right == '!' || right == '?' || right == ';' || right == ':') {
+                    continue;
+                }
+                
+                if (left != right) {
+                    isPalindrome = false;
+                    break;
+                }
+            }
+            
+            if (isPalindrome && word.length() > maxPalindrome.length()) {
+                maxPalindrome = word;
             }
         }
         
         return maxPalindrome;
-    }
-    
-    private static boolean isPalindrome(String word) {
-        int length = word.length();
-        
-        for (int i = 0; i < length / 2; i++) {
-            if (word.charAt(i) != word.charAt(length - 1 - i)) {
-                return false;
-            }
-        }
-        
-        return true;
-    }
-    
-    private static String cleanWord(String word) {
-        StringBuilder result = new StringBuilder();
-        
-        for (int i = 0; i < word.length(); i++) {
-            char ch = word.charAt(i);
-            
-            if ((ch >= 'а' && ch <= 'я') || 
-                (ch >= 'А' && ch <= 'Я') ||
-                (ch >= 'a' && ch <= 'z') ||
-                (ch >= 'A' && ch <= 'Z') ||
-                (ch >= '0' && ch <= '9')) {
-                result.append(ch);
-            }
-        }
-        
-        return result.toString();
     }
 }

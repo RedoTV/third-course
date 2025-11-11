@@ -16,29 +16,28 @@ public class Task16 {
         String maxPalindrome = "";
         
         for (int i = 0; i < words.length; i++) {
-            String word = words[i];
-            int length = word.length();
+            StringBuilder word = new StringBuilder(words[i]);
+            
+            for (int j = word.length() - 1; j >= 0; j--) {
+                char ch = word.charAt(j);
+                if (ch == '.' || ch == ',' || ch == '!' || ch == '?' || ch == ';' || ch == ':') {
+                    word.delete(j, j + 1);
+                }
+            }
+            
+            String cleanWord = word.toString();
+            int length = cleanWord.length();
             boolean isPalindrome = true;
             
             for (int j = 0; j < length / 2; j++) {
-                char left = word.charAt(j);
-                char right = word.charAt(length - 1 - j);
-                
-                if (left == '.' || left == ',' || left == '!' || left == '?' || left == ';' || left == ':') {
-                    continue;
-                }
-                if (right == '.' || right == ',' || right == '!' || right == '?' || right == ';' || right == ':') {
-                    continue;
-                }
-                
-                if (left != right) {
+                if (cleanWord.charAt(j) != cleanWord.charAt(length - 1 - j)) {
                     isPalindrome = false;
                     break;
                 }
             }
             
-            if (isPalindrome && word.length() > maxPalindrome.length()) {
-                maxPalindrome = word;
+            if (isPalindrome && cleanWord.length() > maxPalindrome.length()) {
+                maxPalindrome = cleanWord;
             }
         }
         

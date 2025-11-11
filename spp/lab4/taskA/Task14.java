@@ -10,38 +10,38 @@ public class Task14 {
         System.out.println("Результат: " + removeComments(input));
     }
     
-    public static String removeComments(String str) {
-        StringBuilder result = new StringBuilder(str);
+    public static String removeComments(String text) {
+        StringBuilder cleanedText = new StringBuilder(text);
         
         while (true) {
-            int startIndex = -1;
-            int endIndex = -1;
+            int commentStart = -1;
+            int commentEnd = -1;
             
-            for (int i = 0; i < result.length() - 1; i++) {
-                if (result.charAt(i) == '/' && result.charAt(i + 1) == '*') {
-                    startIndex = i;
+            for (int i = 0; i < cleanedText.length() - 1; i++) {
+                if (cleanedText.charAt(i) == '/' && cleanedText.charAt(i + 1) == '*') {
+                    commentStart = i;
                     break;
                 }
             }
             
-            if (startIndex == -1) {
+            if (commentStart == -1) {
                 break;
             }
             
-            for (int i = startIndex + 2; i < result.length() - 1; i++) {
-                if (result.charAt(i) == '*' && result.charAt(i + 1) == '/') {
-                    endIndex = i + 2;
+            for (int i = commentStart + 2; i < cleanedText.length() - 1; i++) {
+                if (cleanedText.charAt(i) == '*' && cleanedText.charAt(i + 1) == '/') {
+                    commentEnd = i + 2;
                     break;
                 }
             }
-            
-            if (endIndex != -1) {
-                result.delete(startIndex, endIndex);
+
+            if (commentEnd != -1) {
+                cleanedText.delete(commentStart, commentEnd);
             } else {
                 break;
             }
         }
         
-        return result.toString().trim();
+        return cleanedText.toString().trim();
     }
 }

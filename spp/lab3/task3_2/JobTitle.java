@@ -19,7 +19,6 @@ public enum JobTitle {
         return displayName;
     }
 
-
     public static JobTitle fillFromConsole(Scanner scanner) {
         while (true) {
             System.out.println("Выберите должность сотрудника:");

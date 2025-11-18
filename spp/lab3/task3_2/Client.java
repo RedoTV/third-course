@@ -31,15 +31,13 @@ public class Client extends Person {
 
     @Override
     public String toString() {
-        return "Client { " +
-                "fullname='" + getFullName() + '\'' +
-                ", phone='" + getPhone() + '\'' +
+        return super.toString() +
                 ", address='" + address + '\'' +
                 '}';
     }
 
     @Override
     public String getShortDescription() {
-        return "Role: Client, address: " + address;
+        return "Client ";
     }
 }

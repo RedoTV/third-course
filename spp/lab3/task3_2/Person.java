@@ -44,4 +44,10 @@ public abstract class Person {
         System.out.print("Введите телефон человека: ");
         this.phone = scanner.nextLine();
     }
+
+    @Override
+    public String toString() {
+        return getShortDescription() + " { name:='" + this.fullName + '\'' +
+                ", phone='" + phone + '\'';
+    }
 }

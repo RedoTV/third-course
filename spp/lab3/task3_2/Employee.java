@@ -30,15 +30,13 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return "Employee { " +
-                "fullName='" + getFullName() + '\'' +
-                ", phone='" + getPhone() + '\'' +
+        return super.toString() +
                 ", jobTitle='" + jobTitle.getDisplayName() + '\'' +
                 " } ";
     }
 
     @Override
     public String getShortDescription() {
-        return "Role: Employee, jobTitle: " + jobTitle;
+        return "Employee ";
     }
 }

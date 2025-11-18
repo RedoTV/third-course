@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<journal 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="kr.xsd">
+    
+    <journalInfo lang="RUS">
+        <title>Вестник компьютерных наук</title>
+        <number>5</number>
+        <dateYear>2025</dateYear>
+    </journalInfo>
+    
+    <articles>
+        <secTitle lang="RUS">Раздел 1: Искусственный интеллект</secTitle>
+        <article>
+            <authors>
+                <author num="1">
+                    <individInfo lang="RUS">
+                        <surname>Иванов</surname>
+                        <initials>И.И.</initials>
+                        <orgName>МГУ им. Ломоносова</orgName>
+                    </individInfo>
+                    <individInfo lang="ENG">
+                        <surname>Ivanov</surname>
+                        <initials>I.I.</initials>
+                        <orgName>Lomonosov Moscow State University</orgName>
+                    </individInfo>
+                </author>
+                <author num="2">
+                    <individInfo lang="RUS">
+                        <surname>Петров</surname>
+                        <initials>П.П.</initials>
+                        <orgName>ИТМО</orgName>
+                    </individInfo>
+                    <individInfo lang="ENG">
+                        <surname>Petrov</surname>
+                        <initials>P.P.</initials>
+                        <orgName>ITMO University</orgName>
+                    </individInfo>
+                </author>
+            </authors>
+            
+            <artTitles>
+                <artTitle lang="RUS">Применение нейронных сетей в обработке естественного языка</artTitle>
+                <artTitle lang="ENG">Application of Neural Networks in Natural Language Processing</artTitle>
+            </artTitles>
+            
+            <abstracts>
+                <abstract lang="RUS">В данной статье рассматриваются современные подходы к использованию нейронных сетей для анализа и обработки текстов на естественном языке.</abstract>
+                <abstract lang="ENG">This article discusses modern approaches to using neural networks for analyzing and processing natural language texts.</abstract>
+            </abstracts>
+            
+            <codes>
+                <udk>004.8</udk>
+                <edn>ABCDEF</edn>
+            </codes>
+            
+            <keywords>
+                <kwdGroup lang="RUS">
+                    <keyword>нейронные сети</keyword>
+                    <keyword>обработка текста</keyword>
+                    <keyword>машинное обучение</keyword>
+                </kwdGroup>
+                <kwdGroup lang="ENG">
+                    <keyword>neural networks</keyword>
+                    <keyword>text processing</keyword>
+                    <keyword>machine learning</keyword>
+                </kwdGroup>
+            </keywords>
+            
+            <references>
+                <reference></reference>
+                <reference></reference>
+                <reference></reference>
+            </references>
+            
+            <dateReceived>2025-10-15</dateReceived>
+        </article>
+        
+        <secTitle lang="RUS">Раздел 2: Базы данных</secTitle>
+        <article>
+            <authors>
+                <author num="1">
+                    <individInfo lang="RUS">
+                        <surname>Сидоров</surname>
+                        <initials>С.С.</initials>
+                        <orgName>БГУ</orgName>
+                    </individInfo>
+                    <individInfo lang="ENG">
+                        <surname>Sidorov</surname>
+                        <initials>S.S.</initials>
+                        <orgName>Belarusian State University</orgName>
+                    </individInfo>
+                </author>
+            </authors>
+            
+            <artTitles>
+                <artTitle lang="RUS">Оптимизация запросов в распределённых базах данных</artTitle>
+                <artTitle lang="ENG">Query Optimization in Distributed Databases</artTitle>
+            </artTitles>
+            
+            <abstracts>
+                <abstract lang="RUS">Исследуются методы оптимизации SQL-запросов в условиях распределённых СУБД.</abstract>
+                <abstract lang="ENG">Methods of SQL query optimization in distributed database management systems are investigated.</abstract>
+            </abstracts>
+            
+            <codes>
+                <udk>004.65</udk>
+                <edn>GHIJKL</edn>
+            </codes>
+            
+            <keywords>
+                <kwdGroup lang="RUS">
+                    <keyword>базы данных</keyword>
+                    <keyword>оптимизация</keyword>
+                    <keyword>распределённые системы</keyword>
+                </kwdGroup>
+                <kwdGroup lang="ENG">
+                    <keyword>databases</keyword>
+                    <keyword>optimization</keyword>
+                    <keyword>distributed systems</keyword>
+                </kwdGroup>
+            </keywords>
+            
+            <references>
+                <reference>dasda</reference>
+                <reference>sadad</reference>
+            </references>
+            
+            <dateReceived>2025-11-01</dateReceived>
+        </article>
+    </articles>
+    
+</journal>
